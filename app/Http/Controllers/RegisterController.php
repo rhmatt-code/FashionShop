@@ -16,16 +16,22 @@ class RegisterController extends Controller
         request() -> validate([
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'dateofbirth' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8'],
         ]);
 
         User::create([
             'name' => $request ->name,
             'email' => $request ->email,
+            'phone' => $request ->phone,
+            'address' => $request ->address,
+            'dateofbirth' => $request ->dateofbirth,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/');
+        return redirect('login');
     }
 
 }

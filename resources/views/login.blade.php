@@ -21,7 +21,7 @@
     <div class="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-margin uk-margin-small-top uk-container">
         <div class="uk-card uk-border-rounded uk-box-shadow-large uk-card-body uk-animation-slide-left uk-width-xlarge uk-card-default">
             <h1 class="uk-card-title uk-text-center">Welcome to Fashion Shop</h1>
-            <form action="{{route('actionlogin')}}" id="login-form" method="POST">
+            <form action="actionlogin" id="login-form" method="POST">
                 @csrf
                 <div class="uk-margin">
                     <div class="uk-inline uk-width-1-1">

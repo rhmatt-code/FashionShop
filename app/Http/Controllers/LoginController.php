@@ -13,23 +13,25 @@ class LoginController extends Controller
 
     }
 
-    public function actionlogin(Request $request){
+    public function actionlogin (Request $request){
     $data = [
         'email' => $request->input('email'),
         'password' => $request->input('password'),
     ];
 
     if (Auth::Attempt($data)) {
-        return redirect('home');
+        if(Auth::user()->role == 1){
+            return redirect("admin");
+        }
+        else{
+            return redirect("home");
+        }
     }else{
         Session::flash('error', 'Email atau Password Salah');
-        return redirect('/');
+        return redirect('login');
     }
 
     }
 
-    public function actionlogout(){
-    Auth::logout();
-    return redirect('/');
-    }
+
 }
